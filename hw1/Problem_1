@@ -8,5 +8,5 @@ the magnitude of the result is always less than the magnitude of the divisor.
  • 0 % 3 = 0  Zero modulo any number(except for zero) is zero
  • 3 % 3 = 0  both the dividend and the divisor are positive and are the same number, so the result equals zero
  • -2 % 3 = -2  the sign of the dividend determines the sign of the result, so the result is negative
- • 2 % -3 = 3  the sign of the dividend determines the sign of the result, so the result is positive regardless of a negative dividend
+ • 2 % -3 = 2  the sign of the dividend determines the sign of the result, so the result is positive regardless of a negative dividend
  • -2 % -3 = -2  the sign of the dividend determines the sign of the result, so the result is negative
