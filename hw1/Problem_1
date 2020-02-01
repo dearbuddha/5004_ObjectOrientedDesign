@@ -1,0 +1,12 @@
+It follows the rule that the result of the remainder operation can be negative only if the dividend is negative,
+and can be positive only if the dividend is positive. Moreover,
+the magnitude of the result is always less than the magnitude of the divisor.
+
+ If the value of the divisor for an integer remainder operator is 0, then an ArithmeticException is thrown.
+
+ • 2 % 3 = 2  the divisor and dividend are both positive and the dividend is smaller than the divisor, so the result is equal to the dividend
+ • 0 % 3 = 0  Zero modulo any number(except for zero) is zero
+ • 3 % 3 = 0  both the dividend and the divisor are positive and are the same number, so the result equals zero
+ • -2 % 3 = -2  the sign of the dividend determines the sign of the result, so the result is negative
+ • 2 % -3 = 3  the sign of the dividend determines the sign of the result, so the result is positive regardless of a negative dividend
+ • -2 % -3 = -2  the sign of the dividend determines the sign of the result, so the result is negative
