@@ -1,6 +1,5 @@
-package Recitation6;
+package Recitation7.answers;
 
-import Recitation7.ArrayDeque;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,7 +13,6 @@ public class ArrayDequeTest {
 	 */
     @Test
     public void testDeque() {
-
         // creating the queue with the size 5.
         ArrayDeque deque = new ArrayDeque(5);
 
@@ -29,37 +27,40 @@ public class ArrayDequeTest {
         assertEquals("Capacity of the deque", 5, deque.capacity());
         
         // queue has no first element
-        assertEquals("peekFirst", '\0', deque.peekFirst());
+        assertNull("peekFirst", deque.peekFirst());
         
         // queue has no last element
-        assertEquals("peekLast", '\0', deque.peekLast());
+        assertNull("peekLast", deque.peekLast());
 
         // string representation with capacity 5, size 0
         String testval = "[capacity: 5, size: 0, values: []]";
         assertEquals("to string", testval, deque.toString());
 
+        // test values
+        Object[] val = new Object[] {'h', 'e', 'l', 'l', 'o', 'w'};
+        
         // insert 5 elements into the queue.
-        deque.addLast('h');
+        deque.addLast(val[0]);
         
         // queue has 'h' first element
-        assertEquals("peekFirst", 'h', deque.peekFirst());
+        assertEquals("peekFirst", val[0], deque.peekFirst());
         
         // queue has 'h' last element
-        assertEquals("peekLast", 'h', deque.peekLast());
+        assertEquals("peekLast", val[0], deque.peekLast());
 
         // string representation with capacity 5, size 0
         testval = "[capacity: 5, size: 1, values: [h]]";
         assertEquals("to string", testval, deque.toString());
 
-        deque.addFirst('e');
+        deque.addFirst(val[1]);
 
         // string representation with capacity 5, size 0
         testval = "[capacity: 5, size: 2, values: [e, h]]";
         assertEquals("to string", testval, deque.toString());
 
-        deque.addLast('l');
-        deque.addFirst('l');
-        deque.addLast('o');
+        deque.addLast(val[2]);
+        deque.addFirst(val[3]);
+        deque.addLast(val[4]);
 
         // isEmpty function should return false, as 5 elements are entered.
         assertTrue("Is Deque Empty? ", !deque.isEmpty());
@@ -74,18 +75,25 @@ public class ArrayDequeTest {
         assertEquals("Capacity of the deque", 5, deque.capacity());
 
         // queue has no first element
-        assertEquals("peekFirst", 'l', deque.peekFirst());
+        assertEquals("peekFirst", val[3], deque.peekFirst());
         
         // queue has no last element
-        assertEquals("peekLast", 'o', deque.peekLast());
+        assertEquals("peekLast", val[4], deque.peekLast());
 
         // string representation with capacity 5, size 5
         testval = "[capacity: 5, size: 5, values: [l, e, h, l, o]]";
         assertEquals("to string", testval, deque.toString());
+        
+        // test copy constructor and equals methods
+        ArrayDeque deque2 = new ArrayDeque(deque);
+        assertEquals("equals", deque, deque2);
 
         // insert the 6th element.
         // resize would happen to the queue at this point.
-        deque.addFirst('w');
+        deque.addFirst(val[5]);
+        
+        // deque and copy no longer equal
+        assertNotEquals("equals", deque, deque2);
         
         // isEmpty function should return false
         assertTrue("Is Deque Empty? ", !deque.isEmpty());
@@ -100,34 +108,34 @@ public class ArrayDequeTest {
         assertEquals("Capacity of the deque", 10, deque.capacity());
 
         // queue has 'w' first element
-        assertEquals("peekFirst", 'w', deque.peekFirst());
+        assertEquals("peekFirst", val[5], deque.peekFirst());
         
         // deque has 'o' last element
-        assertEquals("peekLast", 'o', deque.peekLast());
+        assertEquals("peekLast", val[4], deque.peekLast());
 
         // deque has 'w' element 0
-        assertEquals("peek 0", 'w', deque.peek(0));
+        assertEquals("peek 0", val[5], deque.peek(0));
 
         // deque has 'o' element 5
-        assertEquals("peek 5", 'o', deque.peek(5));
+        assertEquals("peek 5", val[4], deque.peek(5));
         
         // deque has 'o' element -1
-        assertEquals("peek -1", 'o', deque.peek(-1));
+        assertEquals("peek -1", val[4], deque.peek(-1));
         
         // deque has 'w' element -6
-        assertEquals("peek -6", 'w', deque.peek(-6));
+        assertEquals("peek -6", val[5], deque.peek(-6));
 
         // string representation with capacity 10, size 6
         testval = "[capacity: 10, size: 6, values: [w, l, e, h, l, o]]";
         assertEquals("to string", testval, deque.toString());
 
         // Dequeue all the items in the queue and check the character values.
-        assertEquals("Remove first item", 'w', deque.removeFirst());
-        assertEquals("Remove last item",  'o', deque.removeLast());
-        assertEquals("Remove first item", 'l', deque.removeFirst());
-        assertEquals("Remove last item",  'l', deque.removeLast());
-        assertEquals("Remove first item", 'e', deque.removeFirst());
-        assertEquals("Remove last item",  'h', deque.removeLast());
+        assertEquals("Remove first item", val[5], deque.removeFirst());
+        assertEquals("Remove last item",  val[4], deque.removeLast());
+        assertEquals("Remove first item", val[3], deque.removeFirst());
+        assertEquals("Remove last item",  val[2], deque.removeLast());
+        assertEquals("Remove first item", val[1], deque.removeFirst());
+        assertEquals("Remove last item",  val[0], deque.removeLast());
 
         // isEmpty function should return true
         assertTrue("Is Deque Empty? ", deque.isEmpty());
@@ -139,7 +147,7 @@ public class ArrayDequeTest {
         assertEquals("Size of the deque", 0, deque.size());
 
         // If another element is dequeued, null character should be returned.
-        assertEquals("Remove first item", '\0', deque.removeFirst());
-        assertEquals("Remove last item",  '\0', deque.removeLast());
+        assertNull("Remove first item", deque.removeFirst());
+        assertNull("Remove last item",  deque.removeLast());
     }   
 }

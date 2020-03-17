@@ -1,6 +1,5 @@
-package Recitation5;
+package demo;
 
-import Recitation5.ArrayQueue;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -26,18 +25,22 @@ public class ArrayQueueTest {
         assertEquals("Capacity of the queue", 5, queue.capacity());
         
         // queue has no first element
-        assertEquals("peek", '\0', queue.peek());
+        assertNull("peek", queue.peek());
         
         // string representation with capacity 5, size 0
         String testval = "[capacity: 5, size: 0, values: []]";
         assertEquals("to string", testval, queue.toString());
+        
+        // test values
+        Object[] val = new Object[] {'h', 'e', 'l', 'l', 'o', 'w'};
 
         // insert 5 elements into the queue.
-        queue.enqueue('h');
-        queue.enqueue('e');
-        queue.enqueue('l');
-        queue.enqueue('l');
-        queue.enqueue('o');
+        queue.enqueue(val[0]);
+        queue.enqueue(val[1]);
+        queue.enqueue(val[2]);
+        queue.enqueue(val[3]);
+        queue.enqueue(val[4]);
+        
         // isEmpty function should return false, as 5 elements are entered.
         assertTrue("Is Queue Empty? ", !queue.isEmpty());
 
@@ -51,15 +54,22 @@ public class ArrayQueueTest {
         assertEquals("Capacity of the queue", 5, queue.capacity());
 
         // queue has 'h' first element
-        assertEquals("peek", 'h', queue.peek());
+        assertEquals("peek", val[0], queue.peek());
         
         // string representation with capacity 5, size 5
         testval = "[capacity: 5, size: 5, values: [h, e, l, l, o]]";
         assertEquals("to string", testval, queue.toString());
+        
+        // test copy constructor and equals methods
+        ArrayQueue queue2 = new ArrayQueue(queue);
+        assertEquals("equals", queue, queue2);
 
         // insert the 6th element.
         // resize would happen to the queue at this point.
-        queue.enqueue('w');
+        queue.enqueue(val[5]);
+
+        // queue and copy no longer equal
+        assertNotEquals("equals", queue, queue2);
 
         // isEmpty function should return false
         assertTrue("Is Queue Empty? ", !queue.isEmpty());
@@ -74,19 +84,19 @@ public class ArrayQueueTest {
         assertEquals("Capacity of the queue", 10, queue.capacity());
 
         // queue has 'h' first element
-        assertEquals("peek", 'h', queue.peek());
+        assertEquals("peek", val[0], queue.peek());
         
         // string representation with capacity 10, size 6
         testval = "[capacity: 10, size: 6, values: [h, e, l, l, o, w]]";
         assertEquals("to string", testval, queue.toString());
 
         // Dequeue all the items in the queue and check the character values.
-        assertEquals("Dequeue item", 'h', queue.dequeue());
-        assertEquals("Dequeue item", 'e', queue.dequeue());
-        assertEquals("Dequeue item", 'l', queue.dequeue());
-        assertEquals("Dequeue item", 'l', queue.dequeue());
-        assertEquals("Dequeue item", 'o', queue.dequeue());
-        assertEquals("Dequeue item", 'w', queue.dequeue());
+        assertEquals("Dequeue item", val[0], queue.dequeue());
+        assertEquals("Dequeue item", val[1], queue.dequeue());
+        assertEquals("Dequeue item", val[2], queue.dequeue());
+        assertEquals("Dequeue item", val[3], queue.dequeue());
+        assertEquals("Dequeue item", val[4], queue.dequeue());
+        assertEquals("Dequeue item", val[5], queue.dequeue());
 
         // isEmpty function should return true
         assertTrue("Is Queue Empty? ", queue.isEmpty());
@@ -98,10 +108,10 @@ public class ArrayQueueTest {
         assertEquals("Size of the queue", 0, queue.size());
 
         // queue has no first element
-        assertEquals("peek", '\0', queue.peek());
+        assertNull("peek", queue.peek());
         
         
         // If another element is dequeued, null character should be returned.
-        assertEquals("Dequeue item", '\0', queue.dequeue());
+        assertNull("Dequeue item", queue.dequeue());
     }
 }

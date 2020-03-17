@@ -4,7 +4,7 @@ package Recitation6;
  * CS 5005 Recitation - Session 5
  * Deque of characters implemented as an array.
  */
-final public class ArrayDeque {
+public final class ArrayDeque {
 
     /** Character array for values as circular array. */
     private char[] dequeArr;
@@ -94,7 +94,7 @@ final public class ArrayDeque {
      * @return first element of deque or '\0' if empty
      */
    public char removeLast() {
-   	    // return null character if empty
+   		// return null character if empty
        if(isEmpty()) {
            return '\0';
        }
@@ -118,7 +118,7 @@ final public class ArrayDeque {
     * @return nth element of the dequeue or '\0' if
     *   does not exist
     */
-   public char peek(int n) {  // think about the visibility of this method
+   char peek(int n) {
        if (n < -size() || n >= size()) {
     	   return '\0';  // indicates no char
        }
@@ -150,6 +150,7 @@ final public class ArrayDeque {
    public char peekLast() {
 	   char c = peek(-1);  // last char
        return c;
+       
    }
 
    /**
@@ -219,6 +220,7 @@ final public class ArrayDeque {
      * 
      * @return string representation of deque
      */
+    @Override
     public String toString() {
     	// create string builder
     	StringBuilder sb = new StringBuilder();

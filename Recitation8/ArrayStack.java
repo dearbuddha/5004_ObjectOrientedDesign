@@ -1,73 +1,60 @@
-package Recitation5;
+package Recitation8;
+
+import Recitation7.ArrayDeque;
 
 /**
- * CS 5005 Recitation - Session 2.
+ * CS 5005 Recitation - Session 7.
  *
- * This class provides methods to implement stack with character array.
+ * This class provides methods to implement stack with array.
  */
 public class ArrayStack {
-
-    /**  character array to represent a stack. */
-    char[] items;
-
-    /** index of the top element. */
-    int topIndex = -1;
-
+	/** Deque used as stack */
+	private ArrayDeque deque;
+	
     /**
      * Create stack with specified capacity.
      * 
      * @param capacity the stack capacity
      */
     public ArrayStack(int capacity) {
-    	if (capacity < 1) {
-    		capacity = 1;
-    	}
-    	items = new char[capacity];
+    	deque = new ArrayDeque(capacity);
     }
     
     /**
-     * Push a character item to the stack.
-     * @param item item to be pushed.
+     * Copy constructor performs shallow copy of other.
+     * 
+     * @param other another instance
      */
-    public void push(char item) {
-    	// ensure room to push item
-        if (size() == capacity()) {
-            resize();
-        }
-
-        // add item at next index
-        items[++topIndex] = item;
+    public ArrayStack(ArrayStack other) {
+    	deque = new ArrayDeque(other.deque.capacity());
+    }
+    
+    /**
+     * Push a item to the stack.
+     * @param  o to be pushed.
+     */
+    public void push(Object o) {
+    	deque.addLast(o);
     }
 
     /**
-     * Remove and return the top character element out of the stack.
+     * Remove and return the top element out of the stack.
      *
-     * @return top character element of stack.
+     * @return top element of stack.
      */
-    public char pop() {
-        if (isEmpty()) {
-            return '\0';  // indicates no element
-        }
-
-        char poppedElement = items[topIndex];
-        items[topIndex] = '\0';
-        topIndex = topIndex - 1;
-
-        return poppedElement;
+    public Object pop() {
+    	Object o = deque.removeLast();
+        return o;
     }
 
     /**
-     * Peeks the top character element of the stack.
+     * Peeks the top element of the stack.
      *
      * @return top element of the stack or '\0' if empty
      */
-    public char peek() {
-
-        if (isEmpty()) {
-            return '\0';  // indicates no element
-        }
-
-        return items[topIndex];
+    public Object peek() {
+    	Object o = deque.peekLast();
+        return o;
     }
 
     /**
@@ -76,7 +63,8 @@ public class ArrayStack {
      * @return true if stack is empty.
      */
     public boolean isEmpty() {
-        return topIndex == -1;
+        boolean empty = deque.isEmpty();
+        return empty;
     }
     
     /**
@@ -85,8 +73,8 @@ public class ArrayStack {
      * @return true if the stack is full.
      */
     public boolean isFull() {
-        // number of elements is equal to size of the stack.
-        return size() == capacity();
+    	boolean full = deque.isFull();
+    	return full;
     }
 
     /**
@@ -95,7 +83,8 @@ public class ArrayStack {
      * @return the number of elements on the stack
      */
     public int size() {
-    	return topIndex+1;
+    	int siz = deque.size();
+    	return siz;
     }
     
     /**
@@ -104,29 +93,29 @@ public class ArrayStack {
      * @return the capacity of the stack
      */
     public int capacity() {
-    	return items.length;
+    	int cap = deque.capacity();
+    	return cap;
     }
     
     /**
-     * Resize the capacity of the stack array.
+     * Determines whether this instance is equal
+     * to another instance. A queue is equal to 
+     * another queue if it has the same number of
+     * elements and each corresponding element
+     * equals() the other.
+     * 
+     * @param o an object
+     * @return true if equal
      */
-    private void resize() {
-    	// get new capacity
-    	int newCapacity = capacity() * 2;
-    	
-    	// create new array with new capacity
-    	char[] newItems = new char[newCapacity];
-    	
-    	// copy current array elements into new array
-    	for (int i = 0; i < size(); i++) {
-    		newItems[i] = items[i];
+    @Override
+    public boolean equals(Object o) {
+    	if (o instanceof ArrayStack) {
+    		ArrayStack other = (ArrayStack)o;
+    		return deque.equals(other.deque);
     	}
-    	
-    	// replace current array with new array
-    	items = newItems;
+    	return false;
     }
-    
-    
+
     /**
      * Return string representation of queue. Format is:
      * "[capacity: n, size: n, values: [v1, v2, ..., vn]]"
@@ -154,7 +143,8 @@ public class ArrayStack {
 
     	// appends values in pop order
     	for (int i = size()-1; i >= 0; i--) {
-    		sb.append(items[i]);
+    		Object o = deque.peek(i);
+    		sb.append(o);
     		if (i > 0) { // more chars to print
     			sb.append(", ");
     		}
