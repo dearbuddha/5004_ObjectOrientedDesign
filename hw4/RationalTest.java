@@ -30,8 +30,8 @@ class Rational {
         this.numerator = numerator;
     }
 
-    public int getNumerator(int numerator){
-        return  numerator;
+    public int getNumerator(){
+        return  this.numerator;
     }
 
     public void setDenominator(int denominator){

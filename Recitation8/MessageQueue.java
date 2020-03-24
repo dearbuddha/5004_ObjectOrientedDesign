@@ -6,7 +6,6 @@
  */
 package Recitation8;
 
-import demo.ArrayQueue;
 
 /**
  * Queue of Message objects.
@@ -27,7 +26,7 @@ public final class MessageQueue {
      * If the input capacity is less than 1, then capacity 
      * is reinitialized as one.
      *
-     * @param oapacity capacity of the queue.
+     * @param capacity capacity of the queue.
      */
     public MessageQueue(int capacity) {
     	queue = new ArrayQueue(capacity);
@@ -45,7 +44,7 @@ public final class MessageQueue {
     /**
      * Inserts an element to the queue.
      * 
-     * @param msg message to be inserted.
+     * @param m to be inserted.
      */
     public void enqueue(Message m) {
     	queue.enqueue(m);

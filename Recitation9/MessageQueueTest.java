@@ -118,7 +118,7 @@ public final class MessageQueueTest {
         
         // test values
         Message[] val = new Message[] {
-        	new MailMessage("joe@dokes.com", "bob@dobbs.com", "meeting", "Please attend a meeting."),
+//        	new MailMessage("joe@dokes.com", "bob@dobbs.com", "meeting", "Please attend a meeting."),
         	new PrinterMessage("hpcolorjet-lobby", "This is a color document."),
         	new InstantMessage("14085551212", "16505551212", "hello!"),
         	new UnknownMessage()
@@ -181,7 +181,7 @@ public final class MessageQueueTest {
         // Dequeue all the items in the queue and check the character values.
         Message m = queue.dequeue();
         assertEquals("Dequeue item", val[0], m);
-        assertTrue(m instanceof MailMessage);
+//        assertTrue(m instanceof MailMessage);
         m = queue.dequeue();
         assertEquals("Dequeue item", val[1], m);
         assertTrue(m instanceof PrinterMessage);

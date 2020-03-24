@@ -29,7 +29,7 @@ class Container {
     }
 
     public void transfer(Container receiver, int amount){
-        if(this.quantity + receiver.quantity > receiver.capacity){
+        if(amount > receiver.capacity){
             System.out.println("Failed. No enough room left to fill the receiver container.");
         } else if( amount > this.quantity){
             System.out.println("Failed. No enough liquid in the giver container.");

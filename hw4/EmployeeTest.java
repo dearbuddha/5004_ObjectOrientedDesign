@@ -11,8 +11,8 @@ class Employee {
 
     public Employee(String firstName, String lastName, double salary){
         this.firstName = firstName;
-        this.firstName = lastName;
-        this.monthSalary = salary;
+        this.lastName = lastName;
+        setMonthSalary(salary);
     }
 
     public void setFirstName(String firstName){

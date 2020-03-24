@@ -10,6 +10,9 @@ public class Problem_2 {
         System.out.println("Please enter price of item (in cents, from 25 cents to a dollar, in 5-cent increments):");
         Scanner scannerObject = new Scanner(System.in);
         int price = scannerObject.nextInt();
+        if(price<0 || price > 100){
+            throw new IllegalArgumentException("Invalid input");
+        }
         int change = 100 - price;
         int quarter = change / 25;
         int dime = (change - quarter * 25) / 10;

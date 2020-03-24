@@ -127,8 +127,9 @@ class Circle extends Shape {
     public void setRadius(double radius) {
         if(radius < 0){
             System.out.println("Please enter a valid radius");
+        } else{
+            this.radius = radius;
         }
-        this.radius = radius;
     }
 
     @Override
@@ -180,8 +181,9 @@ class Rectangle extends Shape {
     public void setLength(double length) {
         if(length < 0){
             System.out.println("Invalid length");
+        } else {
+            this.length = length;
         }
-        this.length = length;
     }
 
     public double getWidth() {
@@ -191,8 +193,9 @@ class Rectangle extends Shape {
     public void setWidth(double width) {
         if(width < 0){
             System.out.println("Invalid width");
+        } else {
+            this.width = width;
         }
-        this.width = width;
     }
 
     @Override
@@ -240,8 +243,9 @@ class Sphere extends Shape {
     public void setRadius(double radius) {
         if(radius < 0){
             System.out.println("Invalid radius");
+        } else{
+            this.radius = radius;
         }
-        this.radius = radius;
     }
 
     @Override
@@ -251,7 +255,7 @@ class Sphere extends Shape {
 
     @Override
     public double getVolume() {
-        return Math.PI * Math.pow(radius, 3) * 1.33333333333;
+        return Math.PI * Math.pow(radius, 3) * 4.0/3.0;
     }
 
     /**
@@ -259,8 +263,10 @@ class Sphere extends Shape {
      * @param other
      * @return true if they have the same radius, otherwise false
      */
-    public boolean equals(Sphere other){
-        return this.radius == other.radius;
+    public boolean equals(Object other){
+        if ( other instanceof Sphere) {
+            return this.radius == ((Sphere) other).radius;
+        } else {return false;}
     }
 }
 
@@ -298,8 +304,9 @@ class Cube extends Shape {
     public void setSide(double side) {
         if(side < 0){
             System.out.println("Invalid side");
+        } else{
+            this.side = side;
         }
-        this.side = side;
     }
 
     @Override
@@ -347,8 +354,9 @@ class Tetrahedron extends Shape {
     public void setSide(double side) {
         if(side < 0){
             System.out.println("Invalid side");
+        } else{
+            this.side = side;
         }
-        this.side = side;
     }
 
     @Override
@@ -358,6 +366,6 @@ class Tetrahedron extends Shape {
 
     @Override
     public double getVolume() {
-        return Math.sqrt(2) * Math.pow(side, 3) * 0.08333333333;
+        return Math.sqrt(2) * Math.pow(side, 3) * 1.0/12.0;
     }
 }

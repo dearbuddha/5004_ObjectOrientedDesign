@@ -1,0 +1,20 @@
+Before Java 8:
+    interfaces can only have two types of variables/methods:
+    ~ Constant variables
+    ~ Abstract methods
+
+
+In Java 8, two new types of variables/methods were introduced:
+    ~ Default methods
+    ~ Static methods
+
+With default methods allowed in interfaces, interfaces are enhanced and able to provide a default implementation
+for all the classes that implement the interface, avoiding a lot of repetition or breaking the old code (backward compatibility)
+Also, static methods can't be overridden in the implementation classes.
+
+
+In Java 9, one more feature of variables/methods was introduced:
+    ~ private
+
+Since we can implement behavior via default methods, we might have the diamond problem of multiple inheritances.
+To avoid this, the keyword private can make methods visible only within the interface.
