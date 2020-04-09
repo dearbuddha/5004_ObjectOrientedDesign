@@ -2,7 +2,7 @@
  * This abstract class is base class for all
  * messages that can be added to a MessageQueue. 
  */
-package message;
+package Recitation10.message;
 
 import java.util.Date;
 

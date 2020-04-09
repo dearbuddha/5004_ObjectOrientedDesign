@@ -4,7 +4,8 @@
  * instances of T. Methods of this class 
  * delegates to corresponding ArrayQueue methods
  */
-package demo;
+package Recitation11.demo;
+
 
 /**
  * Queue of T objects ordered by priority

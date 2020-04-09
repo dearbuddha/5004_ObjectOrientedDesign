@@ -2,7 +2,7 @@
  * This class is a mail message that can be
  * added to a MessageQueue.
  */
-package message;
+package Recitation11.message;
 
 /**
  * This class represents an instant message to send.

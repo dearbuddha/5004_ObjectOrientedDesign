@@ -1,4 +1,4 @@
-package demo;
+package Recitation11.demo;
 
 import static org.junit.Assert.*;
 import org.junit.Test;

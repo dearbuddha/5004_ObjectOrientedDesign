@@ -2,7 +2,8 @@
  * CS 5005 Recitation - Session 7
  * Deque of characters implemented as an array.
  */
-package demo;
+package Recitation10.demo;
+
 
 /**
  * Interface for a generic Deque.

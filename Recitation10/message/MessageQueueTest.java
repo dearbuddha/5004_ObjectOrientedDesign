@@ -1,10 +1,10 @@
-package message;
+package Recitation10.message;
 
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import demo.Queue;
-import demo.ArrayQueue;
+import Recitation10.demo.Queue;
+import Recitation10.demo.ArrayQueue;
 
 import java.util.Date;
 

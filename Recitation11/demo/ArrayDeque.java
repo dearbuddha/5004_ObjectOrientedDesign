@@ -1,5 +1,4 @@
-package demo;
-
+package Recitation11.demo;
 /**
  * CS 5005 Recitation - Session 7
  * Deque of characters implemented as an array.

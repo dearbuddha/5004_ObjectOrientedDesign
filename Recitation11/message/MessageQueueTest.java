@@ -1,11 +1,11 @@
-package message;
+package Recitation11.message;
 
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import demo.Queue;
-import demo.ArrayQueue;
-import demo.ArrayMultiQueue;
+import Recitation11.demo.Queue;
+import Recitation11.demo.ArrayQueue;
+import Recitation11.demo.ArrayMultiQueue;
 
 import java.util.Date;
 
@@ -162,7 +162,7 @@ public final class MessageQueueTest {
         assertEquals("to string", testval, queue.toString());
         
         // test copy constructor and equals methods
-        Queue<Message> queue2 = new ArrayMultiQueue<Message>(queue);
+        ArrayMultiQueue<Message> queue2 = new ArrayMultiQueue<Message>(queue);
         assertEquals("equals", queue, queue2);
 
         // insert the 4th element.

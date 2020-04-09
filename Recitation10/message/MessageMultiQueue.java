@@ -4,9 +4,9 @@
  * instances of Message. Methods of this class 
  * delegates to corresponding ArrayQueue methods
  */
-package message;
+package Recitation10.message;
 
-import demo.*;
+import Recitation10.demo.*;
 
 /**
  * Queue of Message objects ordered by priority
