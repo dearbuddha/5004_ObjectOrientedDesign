@@ -1,0 +1,12 @@
+hashCode() method iterates over the container, calling the {hashCode} method on each element (or entry) in the container,
+and adding up the results.
+
+equals() method Compares the specified object with this container for equality.
+Returns true if the given object is also a same type container, the two containers have the same size,
+and every member of the given container is contained in this container.
+
+For the last part: every member of the given container is contained in this container, it requires checking equality.
+Two elements with the same content may be considered different if hashCode() is not overridden, resulting in a failure
+of the hash-table-based container since the the elements would have two different hash codes.
+So overriding equals() alone is not enough for hashing data structures like HashSet, HashMap, etc. hashCode() also
+must be overridden.
